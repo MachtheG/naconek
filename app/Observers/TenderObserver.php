@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Models\Tender;
 use App\Models\ActivityLog;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class TenderObserver
 {
@@ -17,6 +18,7 @@ class TenderObserver
             'model_id' => $tender->id,
             'changes' => ['title' => $tender->title, 'tender_number' => $tender->tender_number]
         ]);
+        Cache::forget('public_tenders_baseline');
     }
 
     public function updated(Tender $tender): void
@@ -31,5 +33,6 @@ class TenderObserver
                 'new' => $tender->getDirty()
             ]
         ]);
+        Cache::forget('public_tenders_baseline');
     }
 }

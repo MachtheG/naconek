@@ -17,6 +17,7 @@ class CareerObserver
             'model_id' => $career->id,
             'changes' => ['title' => $career->title, 'reference_number' => $career->reference_number]
         ]);
+        Cache::forget('public_careers_baseline');
     }
 
     public function updated(Career $career): void
@@ -31,5 +32,6 @@ class CareerObserver
                 'new' => $career->getDirty()
             ]
         ]);
+        Cache::forget('public_careers_baseline');
     }
 }
