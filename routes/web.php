@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\PublicPortalController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Map the homepage to our public portal controller
+Route::get('/', [PublicPortalController::class, 'index']);

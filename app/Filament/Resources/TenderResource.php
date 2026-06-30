@@ -31,7 +31,11 @@ class TenderResource extends Resource
                         TextInput::make('tender_number')
                             ->required()
                             ->unique(ignoreRecord: true)
-                            ->placeholder('e.g., NACONEK/SMP/TND/2026/04'),
+                            ->placeholder('e.g., NACONEK/SMP/TND/2026/04')
+                            ->regex('/^NACONEK\/[A-Z0-9\/_-]+$/')
+                            ->validationMessages([
+                                'regex' => 'The tender number must follow corporate formatting regulations (e.g., NACONEK/SMP/TND/2026/04).',
+                            ]),
                             
                         TextInput::make('title')
                             ->required()
@@ -50,6 +54,7 @@ class TenderResource extends Resource
                         TextInput::make('tender_fee')
                             ->numeric()
                             ->prefix('Ksh')
+                            ->minValue(0)
                             ->default(0)
                             ->required(),
                     ]),

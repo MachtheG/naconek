@@ -42,13 +42,31 @@
                     <p class="text-xs sm:text-sm text-slate-300 font-medium tracking-wide mt-0.5">Every child matters. Sustaining Equitable, Quality Education for All.</p>
                 </div>
             </div>
-            <div class="flex items-center gap-3 self-stretch md:self-auto">
+            <!-- <div class="flex items-center gap-3 self-stretch md:self-auto">
                 <div class="bg-white/10 rounded-lg p-1 flex items-center w-full md:w-64 border border-white/20">
                     <input type="text" placeholder="Search services..." class="bg-transparent text-sm text-white placeholder-slate-400 px-3 py-1.5 focus:outline-none w-full" disabled>
                     <button class="bg-[#005A9C] text-white px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider">Find</button>
                 </div>
             </div>
-        </div>
+        </div> -->
+        <!-- Active Search-Centric Navigation Block -->
+<form action="/" method="GET" class="flex items-center gap-3 self-stretch md:self-auto">
+    <div class="bg-white/10 rounded-lg p-1 flex items-center w-full md:w-64 border border-white/20">
+        <input 
+            type="text" 
+            name="search" 
+            value="{{ $search ?? '' }}"
+            placeholder="Search tenders or careers..." 
+            class="bg-transparent text-sm text-white placeholder-slate-400 px-3 py-1.5 focus:outline-none w-full"
+        >
+        <button type="submit" class="bg-[#005A9C] text-white px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider hover:bg-[#004b82] transition">
+            Find
+        </button>
+    </div>
+    @if($search)
+        <a href="/" class="text-xs text-slate-300 hover:text-white underline whitespace-nowrap">Clear</a>
+    @endif
+</form>
     </header>
 
     <section class="bg-white border-b border-gray-200 py-10">
@@ -64,6 +82,12 @@
     </section>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        @if($search)
+    <div class="bg-blue-50 border border-blue-200 text-[#002D62] px-4 py-3 rounded-lg mb-6 text-sm flex justify-between items-center">
+        <span>Showing results for search term: <strong class="font-semibold">"{{ $search }}"</strong></span>
+        <a href="/" class="text-xs font-bold uppercase tracking-wider text-[#005A9C] hover:underline">Reset Filters</a>
+    </div>
+@endif
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             
             <div class="lg:col-span-2 space-y-10">

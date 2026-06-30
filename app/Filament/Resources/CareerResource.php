@@ -31,7 +31,11 @@ class CareerResource extends Resource
                         TextInput::make('reference_number')
                             ->required()
                             ->unique(ignoreRecord: true)
-                            ->placeholder('e.g., NACONEK/2026/REC/02'),
+                            ->placeholder('e.g., NACONEK/2026/REC/02')
+                            ->regex('/^NACONEK\/[A-Z0-9\/_-]+$/')
+                            ->validationMessages([
+                                'regex' => 'The reference number must match institutional naming architecture (e.g., NACONEK/2026/REC/02).',
+                            ]),
                             
                         TextInput::make('title')
                             ->required()
