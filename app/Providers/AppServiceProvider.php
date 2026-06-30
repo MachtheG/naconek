@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Tender;
+use App\Models\Career;
+use App\Observers\TenderObserver;
+use App\Observers\CareerObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Wire up background auditing listeners for our core tables
+        Tender::observe(TenderObserver::class);
+        Career::observe(CareerObserver::class);
     }
 }
