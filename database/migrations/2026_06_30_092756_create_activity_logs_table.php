@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('activity_logs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null'); // The missing audit column link
+            $table->string('action');
+            $table->string('model_type')->nullable();
+            $table->unsignedBigInteger('model_id')->nullable();
+            $table->json('changes')->nullable();
             $table->timestamps();
         });
     }
