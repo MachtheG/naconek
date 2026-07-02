@@ -7,7 +7,7 @@
     <meta name="description" content="@yield('meta_description', 'NACONEK coordinates education policy, school meals, and learning infrastructure for nomadic communities across Kenya.')">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -23,9 +23,9 @@
             --navy: #002D62;
             --crimson: #b22234;
             --pad-x: clamp(2rem, 6vw, 6rem);
-            --font-sans: "Instrument Sans", sans-serif;
-            --font-serif: "DM Serif Display", serif;
-            --font-mono: "JetBrains Mono", monospace;
+            --font-sans: "Public Sans", sans-serif;
+            --font-serif: "Public Sans", sans-serif;
+            --font-mono: "Public Sans", sans-serif;
         }
 
         html { scroll-behavior: smooth; }
@@ -122,15 +122,15 @@
 
         /* Gov banner */
         .gov-banner {
-            background: #0f1f14;
-            color: #c8c8c6;
-            font-family: var(--font-mono);
-            font-size: 0.6875rem;
-            padding: 0.5rem var(--pad-x);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+            background: var(--bg);
+            padding: 0.75rem var(--pad-x);
+            border-bottom: 1px solid var(--border);
+        }
+        .gov-banner img {
+            width: 100%;
+            max-height: 96px;
+            object-fit: contain;
+            object-position: left center;
         }
         .gov-dot { width: 6px; height: 6px; background: #4ade80; border-radius: 50%; display: inline-block; margin-right: 0.5rem; }
         .gov-right { display: none; }
@@ -289,13 +289,9 @@
 <body>
     {{-- Government Banner --}}
     <div class="gov-banner">
-        <div>
-            <span class="gov-dot"></span>
-            <span style="text-transform:uppercase;letter-spacing:0.08em;">An Official Portal • Republic of Kenya</span>
-        </div>
-        <div class="gov-right">
-            <span>Ministry of Education</span>
-        </div>
+        <a href="{{ url('/') }}" aria-label="NACONEK Home">
+            <img src="/images/naconek.jpeg" alt="NACONEK">
+        </a>
     </div>
 
     {{-- Site Header --}}

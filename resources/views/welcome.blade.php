@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -15,9 +15,9 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Instrument Sans"', 'sans-serif'],
-                        serif: ['"DM Serif Display"', 'serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
+                        sans: ['"Public Sans"', 'sans-serif'],
+                        serif: ['"Public Sans"', 'sans-serif'],
+                        mono: ['"Public Sans"', 'sans-serif'],
                     },
                     colors: {
                         brand: {
@@ -38,7 +38,7 @@
     
     <style>
         body {
-            font-family: "Instrument Sans", sans-serif;
+            font-family: "Public Sans", sans-serif;
             font-weight: 450;
             line-height: 1.65;
             color: #1c1c1c;
@@ -128,15 +128,10 @@
 </head>
 <body class="antialiased">
 
-    <div class="bg-[#001f42] text-[#e8e8e8] text-[11px] font-mono py-2 fluid-container flex justify-between items-center border-b border-brand-border">
-        <div class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-            <span class="tracking-wider uppercase">An Official SAGA Registry • Ministry of Education</span>
-        </div>
-        <div class="hidden md:flex items-center gap-6">
-            <a href="#" onclick="navigateTo('view-dashboard')" class="hover:text-white transition-colors">Executive Dashboard Console</a>
-            <span>Republic of Kenya</span>
-        </div>
+    <div class="fluid-container py-3 border-b border-brand-border bg-brand-offwhite">
+        <a href="#" onclick="navigateTo('view-home')" class="block">
+            <img src="{{ asset('images/naconek.jpeg') }}" alt="NACONEK" class="w-full max-h-24 object-contain object-left">
+        </a>
     </div>
 
     <header class="bg-brand-offwhite border-b border-brand-hairline py-8 fluid-container">
