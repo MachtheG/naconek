@@ -1,4 +1,23 @@
 {
-  "cleanUrls": true,
-  "outputDirectory": "public"
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.php",
+      "use": "@vercel/php"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*\\.(?:css|js|mjs|map|jpg|jpeg|png|gif|svg|webp|avif|ico|bmp|ttf|otf|woff|woff2|eot|txt|xml|json))",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/storage/(.*)",
+      "dest": "/public/storage/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
+    }
+  ]
 }
