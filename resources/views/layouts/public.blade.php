@@ -290,7 +290,7 @@
     {{-- Government Banner --}}
     <div class="gov-banner">
         <a href="{{ url('/') }}" aria-label="NACONEK Home">
-            <img src="/images/naconek.jpeg" alt="NACONEK">
+            <img src="images/naconek.jpeg" alt="NACONEK">
         </a>
     </div>
 

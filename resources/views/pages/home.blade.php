@@ -23,7 +23,7 @@
 {{-- Key image strip --}}
 <div style="padding:0 var(--pad-x);">
     <div style="margin-top:-3rem;position:relative;z-index:2;border-radius:2px;overflow:hidden;height:clamp(16rem,30vw,28rem);">
-        <img src="/images/hero-children.png" alt="Nomadic children studying under an acacia tree in Kenya's arid landscape" class="img-cover" style="width:100%;height:100%;object-fit:cover;">
+        <img src="images/hero-children.png" alt="Nomadic children studying under an acacia tree in Kenya's arid landscape" class="img-cover" style="width:100%;height:100%;object-fit:cover;">
     </div>
 </div>
 
