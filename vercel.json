@@ -1,11 +1,5 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "outputDirectory": "public",
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "outputDirectory": "public"
 }
