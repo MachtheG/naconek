@@ -130,8 +130,7 @@
 
     <div class="fluid-container py-3 border-b border-brand-border bg-brand-offwhite">
         <a href="#" onclick="navigateTo('view-home')" class="block">
-         <!-- Replace your current tag with this clean, static web path -->
-<img src="images/naconek.jpeg" alt="NACONEK" class="w-full max-h-24 object-contain object-left">
+<img src="/images/naconek.jpeg" alt="NACONEK" class="w-full max-h-24 object-contain object-left">
         </a>
     </div>
 
