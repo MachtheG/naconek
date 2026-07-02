@@ -12,7 +12,7 @@
 
 <div style="padding:0 var(--pad-x);">
     <div style="border-radius:2px;overflow:hidden;height:clamp(14rem,25vw,22rem);">
-        <img src="images/duksi-classroom.png" alt="Duksi and Madrassa integrated classroom" class="img-cover" style="width:100%;height:100%;object-fit:cover;">
+        <img src="{{ asset('images/duksi-classroom.png') }}" alt="Duksi and Madrassa integrated classroom" class="img-cover" style="width:100%;height:100%;object-fit:cover;">
     </div>
 </div>
 
