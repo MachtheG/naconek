@@ -9,6 +9,7 @@ use App\Observers\CareerObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\RateLimiter;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
+
         // Wire up background auditing listeners for our core tables
         Tender::observe(TenderObserver::class);
         Career::observe(CareerObserver::class);

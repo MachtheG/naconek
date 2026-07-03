@@ -1,0 +1,53 @@
+services:
+  - type: web
+    name: naconek-web
+    runtime: docker
+    plan: free
+    rootDir: .
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_URL
+        sync: false
+      - key: APP_KEY
+        generateValue: true
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: naconek-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: naconek-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: naconek-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: naconek-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: naconek-db
+          property: password
+      - key: CACHE_STORE
+        value: database
+      - key: SESSION_DRIVER
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
+      - key: ASSET_URL
+        sync: false
+
+databases:
+  - name: naconek-db
+    plan: free
