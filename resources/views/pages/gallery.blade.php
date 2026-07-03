@@ -35,7 +35,7 @@
         </div>
         <div class="card" style="padding:0.5rem;">
             <div style="height:14rem;overflow:hidden;border-radius:2px;">
-                <img src="{{ asset('images/community-meeting.png') }}" alt="Community stakeholder engagement meeting" class="img-cover" style="height:100%;width:100%;object-fit:cover;">
+                <img src="{{ asset('images/naconek.jpeg') }}" alt="Community stakeholder engagement meeting" class="img-cover" style="height:100%;width:100%;object-fit:cover;">
             </div>
             <span class="mono muted mt-2" style="font-size:0.6875rem;display:block;padding:0.25rem;">Community stakeholder engagement</span>
         </div>

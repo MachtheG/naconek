@@ -6,6 +6,7 @@ use App\Models\Tender;
 use App\Models\Career;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Throwable;
 
 class PublicPortalController extends Controller
 {
@@ -81,16 +82,21 @@ class PublicPortalController extends Controller
     {
         $search = $request->input('search');
 
-        if ($search) {
-            $tenders = Tender::where('status', 'active')
-                ->where(function ($q) use ($search) {
-                    $q->where('title', 'LIKE', "%{$search}%")
-                      ->orWhere('tender_number', 'LIKE', "%{$search}%");
-                })->orderBy('closing_at', 'asc')->get();
-        } else {
-            $tenders = Cache::remember('public_tenders', 600, function () {
-                return Tender::where('status', 'active')->orderBy('closing_at', 'asc')->get();
-            });
+        try {
+            if ($search) {
+                $tenders = Tender::where('status', 'active')
+                    ->where(function ($q) use ($search) {
+                        $q->where('title', 'LIKE', "%{$search}%")
+                          ->orWhere('tender_number', 'LIKE', "%{$search}%");
+                    })->orderBy('closing_at', 'asc')->get();
+            } else {
+                $tenders = Cache::remember('public_tenders', 600, function () {
+                    return Tender::where('status', 'active')->orderBy('closing_at', 'asc')->get();
+                });
+            }
+        } catch (Throwable $exception) {
+            report($exception);
+            $tenders = collect();
         }
 
         return view('pages.tenders', compact('tenders', 'search'));
@@ -105,16 +111,21 @@ class PublicPortalController extends Controller
     {
         $search = $request->input('search');
 
-        if ($search) {
-            $careers = Career::where('is_active', true)
-                ->where(function ($q) use ($search) {
-                    $q->where('title', 'LIKE', "%{$search}%")
-                      ->orWhere('reference_number', 'LIKE', "%{$search}%");
-                })->orderBy('closing_at', 'asc')->get();
-        } else {
-            $careers = Cache::remember('public_careers', 600, function () {
-                return Career::where('is_active', true)->orderBy('closing_at', 'asc')->get();
-            });
+        try {
+            if ($search) {
+                $careers = Career::where('is_active', true)
+                    ->where(function ($q) use ($search) {
+                        $q->where('title', 'LIKE', "%{$search}%")
+                          ->orWhere('reference_number', 'LIKE', "%{$search}%");
+                    })->orderBy('closing_at', 'asc')->get();
+            } else {
+                $careers = Cache::remember('public_careers', 600, function () {
+                    return Career::where('is_active', true)->orderBy('closing_at', 'asc')->get();
+                });
+            }
+        } catch (Throwable $exception) {
+            report($exception);
+            $careers = collect();
         }
 
         return view('pages.careers', compact('careers', 'search'));

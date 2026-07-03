@@ -32,7 +32,12 @@
                 </span>
             </div>
             @if($tender->document_path)
-            <a href="{{ asset('storage/' . $tender->document_path) }}" target="_blank" class="btn btn--sm">Download document →</a>
+            @php
+                $documentUrl = \Illuminate\Support\Str::startsWith($tender->document_path, ['http://', 'https://'])
+                    ? $tender->document_path
+                    : asset('storage/' . ltrim($tender->document_path, '/'));
+            @endphp
+            <a href="{{ $documentUrl }}" target="_blank" class="btn btn--sm">Download document →</a>
             @endif
         </div>
         @endforeach

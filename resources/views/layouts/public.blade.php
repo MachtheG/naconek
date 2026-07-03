@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'NACONEK') — National Council for Nomadic Education in Kenya</title>
     <meta name="description" content="@yield('meta_description', 'NACONEK coordinates education policy, school meals, and learning infrastructure for nomadic communities across Kenya.')">
+    <meta name="organization" content="NATIONAL COUNCIL FOR NOMADIC EDUCATION IN KENYA">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
